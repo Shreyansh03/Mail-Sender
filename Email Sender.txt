@@ -1,0 +1,21 @@
+﻿function myFunction() {
+  
+  var ss=SpreadsheetApp.openByUrl("put sheet url here");
+  var events=ss.getActiveSheet();
+  var course = events.getSheetName();
+  var firstrow=2;
+  var numberofrows=events.getLastRow();
+  for(var i=firstrow;i<=numberofrows;i++)
+  {
+      var name=events.getRange(i,1).getValue();
+      var email=events.getRange(i,2).getValue();
+      var slot=events.getRange(i,3).getValue();
+      var subject1="E-CELL IITH CAMPUS AMBASSADOR PROGRAM INTERVIEW";
+      var message1 = "Dear "+ name+",\nWe hope this email finds you in the best of your health. \n\nThank you for registering for the CA Program for E-Cell this year. \nThere will be an interview round for the final selection process. \nYour interview is scheduled for today and we will be calling you in between " + slot + " p.m. Please make sure that you're there to pick up the call for the interview.\n\nBest Regards \nShreyansh Agarwal \nEntrepreneurship Cell, IIT Hyderabad \n+91-8979471587  \nWebsite: https://ecell.iith.ac.in/ ";
+      MailApp.sendEmail(email,subject1 , message1);
+  } 
+}
+function mybutton()
+{
+  myFunction();
+}
