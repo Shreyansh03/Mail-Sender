@@ -1,26 +1,5 @@
-# Mail-Sender
-function myFunction() {
-  
-    var ss=SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/1XTTD_pbrqughywwdSeIkjand8BZaGFyp4XKT61bzJ0k/edit#gid=0");
-    var events=ss.getActiveSheet();
-    var course = events.getSheetName();
-    var firstrow=2;
-    var numberofrows=events.getLastRow();
-    for(var i=firstrow;i<=numberofrows;i++)
-    {
-        var name=events.getRange(i,1).getValue();
-        var rollno=events.getRange(i,2).getValue();
-        var email=events.getRange(i,3).getValue();
-        var message=events.getRange(i,4).getValue();
-        var score=events.getRange(i,5).getValue();
-        var subject="Your Score";
-        var message1 = "Hello "+ name+"\n"+"Roll no. - "+rollno+"\nYou scored "+score+" marks in "+course+" course\n"+message+"\n\nRegards \nShreyansh Agarwal";
-        MailApp.sendEmail(email,subject , message1);
-    } 
-  }
-  function mybutton()
-  {
-    myFunction();
-  }
+# Customized Mail-Sender from google sheets
+
+This is a Google Apps Script code that takes the email address and particular info from the sheet and sends a customised email from your mail id. This is something that I created after getting tired of sending so many individual emails. You can use it to send scores of students, time slots for interviews to people, and a lot more such messages easily with just a click of a button.
   
   
